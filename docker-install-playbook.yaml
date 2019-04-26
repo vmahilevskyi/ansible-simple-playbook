@@ -29,12 +29,16 @@
         - software-properties-common
 
     - name: Add Docker’s official GPG key
-        shell: "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -"
+      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+      args:
+        executable: /bin/bash
 
     - name: Fingerprint verify
-        shell: apt-key fingerprint 0EBFCD88
-        notify:
-          - update packages
+      shell: apt-key fingerprint 0EBFCD88
+      args:
+        executable: /bin/bash
+      notify:
+        - update packages
 
     - name: Install the latest version of Docker CE
         apt:
