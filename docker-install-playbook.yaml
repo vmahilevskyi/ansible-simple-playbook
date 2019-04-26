@@ -43,7 +43,7 @@
 
     - name: Install the latest version of Docker CE
       apt:
-        name: "{{items}}"
+        name: "{{item}}"
         state: latest
       with_items: 
         - docker-ce
