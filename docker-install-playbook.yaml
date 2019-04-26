@@ -28,19 +28,19 @@
         - gnupg-agent
         - software-properties-common
 
-     - name: Add Docker’s official GPG key
-         shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    - name: Add Docker’s official GPG key
+        shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-     - name: Fingerprint verify
-         shell: apt-key fingerprint 0EBFCD88
-         notify:
-           - update packages
+    - name: Fingerprint verify
+        shell: apt-key fingerprint 0EBFCD88
+        notify:
+          - update packages
 
-     - name: Install the latest version of Docker CE
-         apt:
-           name: "{{items}}"
-           state: latest
-         with_items: 
-           - docker-ce
-           - docker-ce-cli
-           - containerd.io 
+    - name: Install the latest version of Docker CE
+        apt:
+          name: "{{items}}"
+          state: latest
+        with_items: 
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io 
