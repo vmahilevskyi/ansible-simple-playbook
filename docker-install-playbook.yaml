@@ -41,10 +41,10 @@
         - update packages
 
     - name: Install the latest version of Docker CE
-        apt:
-          name: "{{items}}"
-          state: latest
-        with_items: 
-          - docker-ce
-          - docker-ce-cli
-          - containerd.io 
+      apt:
+        name: "{{items}}"
+        state: latest
+      with_items: 
+        - docker-ce
+        - docker-ce-cli
+        - containerd.io 
