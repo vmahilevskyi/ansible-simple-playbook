@@ -13,6 +13,7 @@
   
   tasks:
     - name: Update packages 
+      shell: echo "Updating..."
       notify:
         - update packages
       tags: update
