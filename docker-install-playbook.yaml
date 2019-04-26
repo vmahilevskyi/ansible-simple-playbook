@@ -38,13 +38,14 @@
       shell: apt-key fingerprint 0EBFCD88
       args:
         executable: /bin/bash
-      notify:
-        - update packages
+      
 
     - name: Set up the stable repository      
       apt_repository: 
         repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
         state: present
+      notify:
+        - update packages
 
     - name: Install the latest version of Docker CE
       apt:
